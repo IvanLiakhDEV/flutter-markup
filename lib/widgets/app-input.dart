@@ -12,7 +12,7 @@ class AppInput extends StatefulWidget {
     this.placeholder = 'placeholder',
     this.label = 'label',
     this.type = AppInputType.text,
-    this.visibility = true,
+    this.visibility = false,
   });
 
   @override
@@ -35,6 +35,8 @@ class _InputState extends State<AppInput> {
         return TextInputType.phone;
       case AppInputType.number:
         return TextInputType.number;
+      case AppInputType.date:
+        return TextInputType.datetime;
       default:
         return TextInputType.text;
     }
@@ -51,7 +53,7 @@ class _InputState extends State<AppInput> {
         ),
         SizedBox(height: 12),
         TextField(
-          obscureText: _isHidden,
+          obscureText: _isHidden && widget.type == AppInputType.password,
           textAlignVertical: TextAlignVertical.center,
           style: AppTextStyles.md.copyWith(color: AppColors.textPlaceholders),
           keyboardType: _getKeyboardType(),
@@ -68,7 +70,6 @@ class _InputState extends State<AppInput> {
               color: AppColors.textPlaceholders,
             ),
             contentPadding: EdgeInsets.all(10.0),
-
             suffixIcon: widget.type == AppInputType.password
                 ? IconButton(
                     icon: Icon(
@@ -84,17 +85,26 @@ class _InputState extends State<AppInput> {
           ),
         ),
         Visibility(
-          visible: widget.type == AppInputType.password,
+          visible: widget.visibility && widget.type == AppInputType.password,
           child: Container(
             alignment: Alignment.centerRight,
             child: Column(
               children: [
                 SizedBox(height: 9),
-                Text(
-                  'Forget Password',
-                  style: AppTextStyles.sm.copyWith(
-                    color: AppColors.textPrimary,
-                    fontWeight: FontWeight.w500,
+                TextButton(
+                  onPressed: () => print('Pressed'),
+                  style: TextButton.styleFrom(
+                    padding: EdgeInsets.zero,
+                    minimumSize: Size.zero,
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  ),
+                  child: Text(
+                    'Forget Password',
+                    style: AppTextStyles.sm.copyWith(
+                      color: AppColors.textPrimary,
+                      fontWeight: FontWeight.w500,
+                      height: 1,
+                    ),
                   ),
                 ),
               ],

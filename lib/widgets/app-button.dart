@@ -18,17 +18,16 @@ class AppButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 207,
-      height: 45,
-
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
+          minimumSize: Size(207, 45),
+          padding: EdgeInsets.symmetric(vertical: 12, horizontal: 30),
           backgroundColor: backgroundColor,
           foregroundColor: textColor,
           elevation: 0,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(21),
+            borderRadius: BorderRadius.circular(30),
           ),
         ),
         child: Text(text, style: AppTextStyles.lg.copyWith()),
