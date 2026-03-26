@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markup/screens/authentication/login-screen.dart';
+import 'package:flutter_markup/screens/authentication/set-password-screen.dart';
+import 'package:flutter_markup/screens/authentication/signup-screen.dart';
 import './screens/home-screen.dart';
 import './screens/preview-screen.dart';
 import './screens/welcome-screen.dart';
@@ -27,7 +29,9 @@ class MainApp extends StatelessWidget {
 
       // home: const PreviewScreen(),
       // home: Welcomescreen(),
-      home: LoginScreen(),
+      // home: LoginScreen(),
+      // home: SignUpScreen(),
+      home: SetPasswordScreen(),
     );
   }
 }
