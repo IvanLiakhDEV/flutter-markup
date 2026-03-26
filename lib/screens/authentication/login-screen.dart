@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_markup/core/app-style.dart';
 import 'package:flutter_markup/core/enums.dart';
 import 'package:flutter_markup/widgets/app-appbar.dart';
+import 'package:flutter_markup/widgets/app-auth-method-button.dart';
 import 'package:flutter_markup/widgets/app-button.dart';
 import 'package:flutter_markup/widgets/app-input.dart';
 
@@ -57,6 +58,40 @@ class LoginScreen extends StatelessWidget {
                       textColor: Colors.white,
                       onPressed: () => print('Log in'),
                     ),
+                  ),
+                  SizedBox(height: 16),
+                  Text(
+                    'or sign up with',
+                    style: AppTextStyles.sm,
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 12),
+                  Center(
+                    child: SizedBox(
+                      width: 160,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          AppAuthMethodButton(icon: 'google'),
+                          AppAuthMethodButton(icon: 'facebook'),
+                          AppAuthMethodButton(icon: 'fingerprint'),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 38),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('Don’t have an account? ', style: AppTextStyles.sm),
+                      Text(
+                        'Sign Up',
+                        style: AppTextStyles.sm.copyWith(
+                          color: AppColors.textPrimary,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),

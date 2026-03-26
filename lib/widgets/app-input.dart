@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markup/core/app-style.dart';
 import 'package:flutter_markup/core/enums.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class AppInput extends StatefulWidget {
   final String placeholder;
