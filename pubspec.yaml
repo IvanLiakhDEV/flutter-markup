@@ -21,6 +21,7 @@ flutter:
     assets:
         - assets/images/logo-img-blue.svg
         - assets/images/logo-img-white.svg
+        - assets/images/arrow-left.svg
     fonts:
         - family: League Spartan
           fonts:
