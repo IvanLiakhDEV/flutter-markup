@@ -20,6 +20,7 @@ class AppButton extends StatelessWidget {
     return SizedBox(
       width: 207,
       height: 45,
+
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
@@ -27,7 +28,7 @@ class AppButton extends StatelessWidget {
           foregroundColor: textColor,
           elevation: 0,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30),
+            borderRadius: BorderRadius.circular(21),
           ),
         ),
         child: Text(text, style: AppTextStyles.lg.copyWith()),
