@@ -17,7 +17,7 @@ class AppLogo extends StatelessWidget {
           height: size,
           semanticsLabel: 'preview logo',
         ),
-        const SizedBox(height: 19),
+        const SizedBox(height: 14),
         Text(
           'Skin\nFirst',
           style: AppTextStyles.xxlg.copyWith(
@@ -29,7 +29,7 @@ class AppLogo extends StatelessWidget {
         Text(
           'Dermatology Center',
           style: TextStyle(
-            fontSize: 14,
+            fontSize: 12,
             color: theme == 'dark' ? Colors.white : AppColors.textPrimary,
             fontWeight: FontWeight.w600,
           ),
