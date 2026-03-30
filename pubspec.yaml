@@ -25,6 +25,12 @@ flutter:
         - assets/images/facebook.svg
         - assets/images/fingerprint.svg
         - assets/images/google.svg
+        - assets/images/avatar.png
+        - assets/images/settings.svg
+        - assets/images/notification.svg
+        - assets/images/heart.svg
+        - assets/images/stethoscope.svg
+
     fonts:
         - family: League Spartan
           fonts:

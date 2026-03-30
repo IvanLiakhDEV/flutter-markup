@@ -31,7 +31,8 @@ class MainApp extends StatelessWidget {
       // home: Welcomescreen(),
       // home: LoginScreen(),
       // home: SignUpScreen(),
-      home: SetPasswordScreen(),
+      // home: SetPasswordScreen(),
+      home: HomeScreen(),
     );
   }
 }
