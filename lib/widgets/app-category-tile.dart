@@ -18,17 +18,15 @@ class AppCategoryTile extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(10),
-
       child: SizedBox(
         height: 45,
         width: 50,
-
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(
               height: 20,
-              child: SvgPicture.asset(icon, fit: BoxFit.contain),
+              child: SvgPicture.asset(icon, fit: BoxFit.contain, height: 20),
             ),
             Text(
               label,
