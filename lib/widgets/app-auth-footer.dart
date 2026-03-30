@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markup/core/app-style.dart';
-import 'package:flutter_markup/widgets/app-auth-method-button.dart';
+import 'package:flutter_markup/widgets/app-iconbutton.dart';
 import 'package:flutter_markup/widgets/app-button.dart';
 
 class AuthFooter extends StatelessWidget {
@@ -49,9 +49,9 @@ class AuthFooter extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  AppAuthMethodButton(icon: 'google'),
-                  AppAuthMethodButton(icon: 'facebook'),
-                  AppAuthMethodButton(icon: 'fingerprint'),
+                  AppIconButton(icon: 'google', size: 24),
+                  AppIconButton(icon: 'facebook', size: 24),
+                  AppIconButton(icon: 'fingerprint', size: 24),
                 ],
               ),
             ),

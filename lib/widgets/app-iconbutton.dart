@@ -3,26 +3,34 @@ import 'package:flutter_markup/core/app-style.dart';
 import 'package:flutter_markup/core/enums.dart';
 import 'package:flutter_svg/svg.dart';
 
-class AppAuthMethodButton extends StatelessWidget {
+class AppIconButton extends StatelessWidget {
   final String icon;
-  const AppAuthMethodButton({super.key, this.icon = 'google'});
-
+  final double size;
+  final double padding;
+  const AppIconButton({
+    super.key,
+    this.icon = 'google',
+    required this.size,
+    this.padding = 10,
+  });
   @override
   Widget build(BuildContext context) {
+    final double totalSize = size + (padding * 2);
     return Container(
       child: IconButton(
         onPressed: () => print('123'),
+        constraints: BoxConstraints.tightFor(
+          width: totalSize,
+          height: totalSize,
+        ),
         icon: SvgPicture.asset(
           'assets/images/$icon.svg',
-          width: 24,
-          height: 24,
+          width: size,
+          height: size,
         ),
         style: IconButton.styleFrom(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(100),
-          ),
+          shape: CircleBorder(),
           backgroundColor: AppColors.surfaceBackground,
-          padding: EdgeInsets.symmetric(horizontal: 11, vertical: 11),
         ),
       ),
     );
