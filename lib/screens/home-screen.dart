@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_markup/core/app-style.dart';
 import 'package:flutter_markup/widgets/app-iconbutton.dart';
 import 'package:flutter_markup/widgets/app-category-tile.dart';
+import 'package:flutter_markup/widgets/app_searchbar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -30,7 +31,6 @@ class HomeScreen extends StatelessWidget {
                       SizedBox(width: 10),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-
                         children: [
                           Text(
                             'Hi, WelcomeBack',
@@ -51,29 +51,23 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 23),
+
                   Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Row(
-                        children: [
-                          /**
-                           * 
-                           * TODO:
-                           * Створити та додати searchbar, додати іконки, додати стилі для тексту кнопки
-                           * 
-                           */
-                          AppCategoryTile(
-                            label: 'Doctors',
-                            icon: 'assets/images/stethoscope.svg',
-                            onTap: () => {},
-                          ),
-                          SizedBox(width: 11),
-                          AppCategoryTile(
-                            label: 'Favorite',
-                            icon: 'assets/images/heart.svg',
-                            onTap: () => {},
-                          ),
-                        ],
+                      AppCategoryTile(
+                        label: 'Doctors',
+                        icon: 'assets/images/stethoscope.svg',
+                        onTap: () => {},
                       ),
+                      SizedBox(width: 11),
+                      AppCategoryTile(
+                        label: 'Favorite',
+                        icon: 'assets/images/heart.svg',
+                        onTap: () => {},
+                      ),
+                      SizedBox(width: 12),
+                      Expanded(child: AppSearchbar()),
                     ],
                   ),
                 ],

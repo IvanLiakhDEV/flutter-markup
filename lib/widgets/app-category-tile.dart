@@ -15,23 +15,28 @@ class AppCategoryTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Colors.transparent,
-      child: InkWell(
-        onTap: onTap,
-        child: Center(
-          child: Column(
-            spacing: 6,
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SvgPicture.asset(icon),
-              Text(
-                label,
-                style: AppTextStyles.sm.copyWith(color: AppColors.textPrimary),
-              ),
-            ],
-          ),
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(10),
+
+      child: SizedBox(
+        height: 45,
+        width: 50,
+
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            SizedBox(
+              height: 20,
+              child: SvgPicture.asset(icon, fit: BoxFit.contain),
+            ),
+            Text(
+              label,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: AppTextStyles.sm.copyWith(color: AppColors.textPrimary),
+            ),
+          ],
         ),
       ),
     );

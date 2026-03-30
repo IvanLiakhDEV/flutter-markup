@@ -19,17 +19,7 @@ dev_dependencies:
 flutter:
     uses-material-design: true
     assets:
-        - assets/images/logo-img-blue.svg
-        - assets/images/logo-img-white.svg
-        - assets/images/arrow-left.svg
-        - assets/images/facebook.svg
-        - assets/images/fingerprint.svg
-        - assets/images/google.svg
-        - assets/images/avatar.png
-        - assets/images/settings.svg
-        - assets/images/notification.svg
-        - assets/images/heart.svg
-        - assets/images/stethoscope.svg
+        - assets/images/
 
     fonts:
         - family: League Spartan
