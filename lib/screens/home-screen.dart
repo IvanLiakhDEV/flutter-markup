@@ -2,14 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_markup/core/app-style.dart';
 import 'package:flutter_markup/widgets/app-iconbutton.dart';
 import 'package:flutter_markup/widgets/app-category-tile.dart';
+import 'package:flutter_markup/widgets/app_bottom_navbar.dart';
 import 'package:flutter_markup/widgets/doctor_card.dart';
 import 'package:flutter_markup/widgets/shedule/app_schedule.dart';
 import 'package:flutter_markup/widgets/app_searchbar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -121,6 +128,10 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: AppBottomNavbar(
+        currentIndex: _currentIndex,
+        onTap: (index) => setState(() => _currentIndex = index),
       ),
     );
   }
