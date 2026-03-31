@@ -3,6 +3,7 @@ import 'package:flutter_markup/screens/authentication/login-screen.dart';
 import 'package:flutter_markup/screens/authentication/set-password-screen.dart';
 import 'package:flutter_markup/screens/authentication/signup-screen.dart';
 import 'package:flutter_markup/screens/doctors_list_screen.dart';
+import 'package:flutter_markup/screens/proflie_screen.dart';
 import './screens/home_screen.dart';
 import './screens/preview_screen.dart';
 import './screens/welcome_screen.dart';
@@ -35,7 +36,8 @@ class MainApp extends StatelessWidget {
       // home: SignUpScreen(),
       // home: SetPasswordScreen(),
       // home: HomeScreen(),
-      home: DoctorsListScreen(),
+      // home: DoctorsListScreen(),
+      home: ProflieScreen(),
     );
   }
 }
