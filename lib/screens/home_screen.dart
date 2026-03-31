@@ -6,7 +6,6 @@ import 'package:flutter_markup/widgets/app_bottom_navbar.dart';
 import 'package:flutter_markup/widgets/doctor_card.dart';
 import 'package:flutter_markup/widgets/schedule/app_schedule.dart';
 import 'package:flutter_markup/widgets/app_searchbar.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

@@ -8,13 +8,15 @@ class AppInput extends StatefulWidget {
   final AppInputType type;
   final bool visibility;
   final String? initialValue;
+  final bool showHelp;
   const AppInput({
     super.key,
     this.placeholder = 'placeholder',
     this.label = 'label',
     this.type = AppInputType.text,
-    this.visibility = false,
+    this.visibility = true,
     this.initialValue,
+    this.showHelp = false,
   });
 
   @override
@@ -96,7 +98,7 @@ class _InputState extends State<AppInput> {
           ),
         ),
         Visibility(
-          visible: widget.visibility && widget.type == AppInputType.password,
+          visible: widget.showHelp,
           child: Container(
             alignment: Alignment.centerRight,
             child: Column(

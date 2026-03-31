@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_markup/core/app_style.dart';
 import 'package:flutter_markup/widgets/app_appbar.dart';
 import 'package:flutter_markup/widgets/app_bottom_navbar.dart';
 import 'package:flutter_markup/widgets/app_nav_item.dart';

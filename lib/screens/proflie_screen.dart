@@ -3,7 +3,6 @@ import 'package:flutter_markup/core/app_style.dart';
 import 'package:flutter_markup/widgets/app_appbar.dart';
 import 'package:flutter_markup/widgets/app_bottom_navbar.dart';
 import 'package:flutter_markup/widgets/app_circle_button.dart';
-import 'package:flutter_markup/widgets/app_icon_button.dart';
 import 'package:flutter_markup/widgets/app_nav_item.dart';
 
 class ProflieScreen extends StatelessWidget {

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markup/core/app_style.dart';
-import 'package:flutter_markup/core/enums.dart';
 import 'package:flutter_svg/svg.dart';
 
 class AppIconButton extends StatelessWidget {

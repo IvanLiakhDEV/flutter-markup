@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markup/core/app_style.dart';
 import 'package:flutter_markup/widgets/app_appbar.dart';
-import 'package:flutter_markup/widgets/app_icon_button.dart';
-import 'package:flutter_markup/widgets/app_category_tile.dart';
 import 'package:flutter_markup/widgets/app_bottom_navbar.dart';
 import 'package:flutter_markup/widgets/app_circle_button.dart';
-import 'package:flutter_markup/widgets/doctor_card.dart';
-import 'package:flutter_markup/widgets/schedule/app_schedule.dart';
-import 'package:flutter_markup/widgets/app_searchbar.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class DoctorsListScreen extends StatefulWidget {
   const DoctorsListScreen({super.key});
@@ -142,7 +136,6 @@ class _buildDoctorsCard extends StatelessWidget {
   final String imgPath;
 
   const _buildDoctorsCard({
-    super.key,
     required this.doctorsName,
     required this.specialty,
     required this.imgPath,
