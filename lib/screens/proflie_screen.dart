@@ -4,6 +4,7 @@ import 'package:flutter_markup/widgets/app_appbar.dart';
 import 'package:flutter_markup/widgets/app_bottom_navbar.dart';
 import 'package:flutter_markup/widgets/app_circle_button.dart';
 import 'package:flutter_markup/widgets/app_icon_button.dart';
+import 'package:flutter_markup/widgets/app_nav_item.dart';
 
 class ProflieScreen extends StatelessWidget {
   const ProflieScreen({super.key});
@@ -37,25 +38,16 @@ class ProflieScreen extends StatelessWidget {
               Column(
                 spacing: 16,
                 children: [
-                  _buildMenuItem(icon: Icons.person, text: 'Profile'),
-                  _buildMenuItem(
-                    icon: Icons.favorite_outline,
-                    text: 'Favorite',
-                  ),
-                  _buildMenuItem(
+                  AppNavItem(icon: Icons.person, text: 'Profile'),
+                  AppNavItem(icon: Icons.favorite_outline, text: 'Favorite'),
+                  AppNavItem(
                     icon: Icons.account_balance_wallet_outlined,
                     text: 'Payment Method',
                   ),
-                  _buildMenuItem(
-                    icon: Icons.lock_outlined,
-                    text: 'Privacy Policy',
-                  ),
-                  _buildMenuItem(
-                    icon: Icons.settings_outlined,
-                    text: 'Settings',
-                  ),
-                  _buildMenuItem(icon: Icons.question_mark, text: 'Help'),
-                  _buildMenuItem(icon: Icons.logout, text: 'Logout'),
+                  AppNavItem(icon: Icons.lock_outlined, text: 'Privacy Policy'),
+                  AppNavItem(icon: Icons.settings_outlined, text: 'Settings'),
+                  AppNavItem(icon: Icons.question_mark, text: 'Help'),
+                  AppNavItem(icon: Icons.logout, text: 'Logout'),
                 ],
               ),
             ],
@@ -63,35 +55,6 @@ class ProflieScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: AppBottomNavbar(currentIndex: 0, onTap: (_) => {}),
-    );
-  }
-}
-
-class _buildMenuItem extends StatelessWidget {
-  final IconData icon;
-  final String text;
-
-  const _buildMenuItem({super.key, required this.icon, required this.text});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
-            color: AppColors.surfaceBackground,
-          ),
-          child: Padding(
-            padding: EdgeInsetsGeometry.all(8),
-            child: Icon(icon, size: 25, color: AppColors.scaffoldBackground),
-          ),
-        ),
-        SizedBox(width: 21),
-        Text(text, style: AppTextStyles.md),
-        Spacer(),
-        Icon(Icons.chevron_right, color: AppColors.surfaceBackground, size: 25),
-      ],
     );
   }
 }
