@@ -2,41 +2,52 @@ import 'package:flutter/material.dart';
 import 'package:flutter_markup/core/app-style.dart';
 
 class AppCircleButton extends StatelessWidget {
-  final IconData icon;
+  final IconData? icon;
   final String text;
+  final Color backgroundColor;
+  final Color textColor;
+  final Widget? customChild;
 
-  const AppCircleButton({super.key, required this.icon, this.text = ''});
+  const AppCircleButton({
+    super.key,
+    this.icon,
+    this.text = '',
+    this.backgroundColor = Colors.white,
+    this.textColor = AppColors.textPrimary,
+    this.customChild,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(
-        horizontal: text.isNotEmpty ? 12 : 6,
+        horizontal: text.isNotEmpty || customChild != null ? 12 : 6,
         vertical: 6,
       ),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: backgroundColor,
         borderRadius: BorderRadius.circular(20),
       ),
-      child: Row(
-        children: [
-          Icon(icon, size: 18, color: AppColors.textPrimary),
-          if (text.isNotEmpty) ...[
-            const SizedBox(width: 6),
-            Transform.translate(
-              offset: const Offset(0, 1.7),
-              child: Text(
-                text,
-                style: AppTextStyles.sm.copyWith(
-                  color: AppColors.textPrimary,
-                  fontWeight: FontWeight.w400,
-                  height: 1.0,
+      child:
+          customChild ??
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              if (icon != null) Icon(icon!, size: 18, color: textColor),
+              if (text.isNotEmpty) ...[
+                if (icon != null) const SizedBox(width: 6),
+                Text(
+                  text,
+                  style: AppTextStyles.sm.copyWith(
+                    color: textColor,
+                    fontWeight: FontWeight.w400,
+                    height: 1.0,
+                  ),
                 ),
-              ),
-            ),
-          ],
-        ],
-      ),
+              ],
+            ],
+          ),
     );
   }
 }
