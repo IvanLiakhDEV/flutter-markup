@@ -7,12 +7,14 @@ class AppInput extends StatefulWidget {
   final String label;
   final AppInputType type;
   final bool visibility;
+  final String? initialValue;
   const AppInput({
     super.key,
     this.placeholder = 'placeholder',
     this.label = 'label',
     this.type = AppInputType.text,
     this.visibility = false,
+    this.initialValue,
   });
 
   @override
@@ -21,10 +23,18 @@ class AppInput extends StatefulWidget {
 
 class _InputState extends State<AppInput> {
   late bool _isHidden;
+  late TextEditingController _controller;
   @override
   void initState() {
     super.initState();
     _isHidden = widget.visibility;
+    _controller = TextEditingController(text: widget.initialValue);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   TextInputType _getKeyboardType() {
@@ -53,9 +63,10 @@ class _InputState extends State<AppInput> {
         ),
         SizedBox(height: 12),
         TextField(
+          controller: _controller,
           obscureText: _isHidden && widget.type == AppInputType.password,
           textAlignVertical: TextAlignVertical.center,
-          style: AppTextStyles.md.copyWith(color: AppColors.textPlaceholders),
+          style: AppTextStyles.md.copyWith(color: Colors.black),
           keyboardType: _getKeyboardType(),
           decoration: InputDecoration(
             isDense: true,
