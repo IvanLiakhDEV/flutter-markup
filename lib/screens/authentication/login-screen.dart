@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_markup/core/app-style.dart';
+import 'package:flutter_markup/core/app_style.dart';
 import 'package:flutter_markup/core/enums.dart';
-import 'package:flutter_markup/widgets/app-appbar.dart';
-import 'package:flutter_markup/widgets/app-auth-footer.dart';
-import 'package:flutter_markup/widgets/app-input.dart';
+import 'package:flutter_markup/widgets/app_appbar.dart';
+import 'package:flutter_markup/widgets/app_auth_footer.dart';
+import 'package:flutter_markup/widgets/app_input.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_markup/core/app-style.dart';
-import 'package:flutter_markup/widgets/app-iconbutton.dart';
-import 'package:flutter_markup/widgets/app-button.dart';
+import 'package:flutter_markup/core/app_style.dart';
+import 'package:flutter_markup/widgets/app_icon_button.dart';
+import 'package:flutter_markup/widgets/app_button.dart';
 
 class AuthFooter extends StatelessWidget {
   final String buttonText;

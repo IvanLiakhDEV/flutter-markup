@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_markup/core/app-style.dart';
+import 'package:flutter_markup/core/app_style.dart';
 import 'package:flutter_markup/core/extensions.dart';
-import 'package:flutter_markup/widgets/app-button.dart';
-import '../widgets/app-logo.dart';
+import 'package:flutter_markup/widgets/app_button.dart';
+import '../widgets/app_logo.dart';
 
 class Welcomescreen extends StatelessWidget {
   const Welcomescreen({super.key});

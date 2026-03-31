@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_markup/core/app-style.dart';
-import 'package:flutter_markup/widgets/app-appbar.dart';
-import 'package:flutter_markup/widgets/app-iconbutton.dart';
-import 'package:flutter_markup/widgets/app-category-tile.dart';
+import 'package:flutter_markup/core/app_style.dart';
+import 'package:flutter_markup/widgets/app_appbar.dart';
+import 'package:flutter_markup/widgets/app_icon_button.dart';
+import 'package:flutter_markup/widgets/app_category_tile.dart';
 import 'package:flutter_markup/widgets/app_bottom_navbar.dart';
 import 'package:flutter_markup/widgets/app_circle_button.dart';
 import 'package:flutter_markup/widgets/doctor_card.dart';
-import 'package:flutter_markup/widgets/shedule/app_schedule.dart';
+import 'package:flutter_markup/widgets/schedule/app_schedule.dart';
 import 'package:flutter_markup/widgets/app_searchbar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

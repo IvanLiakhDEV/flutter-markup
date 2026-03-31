@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_markup/core/app-style.dart';
+import 'package:flutter_markup/core/app_style.dart';
 
 import 'appointment_item.dart';
 

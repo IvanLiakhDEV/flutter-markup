@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_markup/core/app-style.dart';
+import 'package:flutter_markup/core/app_style.dart';
 import 'package:flutter_markup/widgets/app_day_tile.dart';
-import 'package:flutter_markup/widgets/shedule/daily_schedule_card.dart';
+import 'package:flutter_markup/widgets/schedule/daily_schedule_card.dart';
 
 class AppSchedule extends StatelessWidget {
   const AppSchedule({super.key});

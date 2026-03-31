@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../core/app-style.dart';
+import '../core/app_style.dart';
 
 class AppLogo extends StatelessWidget {
   final double size;
