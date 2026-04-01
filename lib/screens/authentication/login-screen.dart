@@ -48,18 +48,24 @@ class LoginScreen extends StatelessWidget {
                     placeholder: '••••••••••••',
                     type: AppInputType.password,
                     label: 'Password ',
+                    showHelp: true,
+                    onHelpPress: () => Navigator.pushReplacementNamed(
+                      context,
+                      '/set-password',
+                    ),
                   ),
                   SizedBox(height: 55),
                   AuthFooter(
                     bottomLinkText: 'Don’t have an account?',
                     bottomTextSuffix: 'Sign Up',
                     buttonText: 'Log In',
-                    onButtonPressed: () {
-                      print('Log In');
-                    },
-                    onBottomLinkPressed: () {
-                      print('Bottom link');
-                    },
+                    onButtonPressed: () => Navigator.pushNamedAndRemoveUntil(
+                      context,
+                      '/home',
+                      (route) => false,
+                    ),
+                    onBottomLinkPressed: () =>
+                        Navigator.pushReplacementNamed(context, '/signup'),
                   ),
                 ],
               ),

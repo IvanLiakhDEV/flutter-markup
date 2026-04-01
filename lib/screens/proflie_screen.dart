@@ -37,14 +37,23 @@ class ProflieScreen extends StatelessWidget {
               Column(
                 spacing: 16,
                 children: [
-                  AppNavItem(icon: Icons.person, text: 'Profile'),
+                  AppNavItem(
+                    icon: Icons.person,
+                    text: 'Profile',
+                    onPressed: () =>
+                        Navigator.pushNamed(context, '/profile/update'),
+                  ),
                   AppNavItem(icon: Icons.favorite_outline, text: 'Favorite'),
                   AppNavItem(
                     icon: Icons.account_balance_wallet_outlined,
                     text: 'Payment Method',
                   ),
                   AppNavItem(icon: Icons.lock_outlined, text: 'Privacy Policy'),
-                  AppNavItem(icon: Icons.settings_outlined, text: 'Settings'),
+                  AppNavItem(
+                    icon: Icons.settings_outlined,
+                    text: 'Settings',
+                    onPressed: () => Navigator.pushNamed(context, '/settings'),
+                  ),
                   AppNavItem(icon: Icons.question_mark, text: 'Help'),
                   AppNavItem(icon: Icons.logout, text: 'Logout'),
                 ],
@@ -53,7 +62,6 @@ class ProflieScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: AppBottomNavbar(currentIndex: 0, onTap: (_) => {}),
     );
   }
 }

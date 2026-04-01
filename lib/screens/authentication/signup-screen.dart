@@ -23,21 +23,19 @@ class SignUpScreen extends StatelessWidget {
                 spacing: 18,
                 children: [
                   AppInput(placeholder: 'John Doe', label: 'Full name'),
-                  Column(
-                    children: [
-                      AppInput(
-                        placeholder: '••••••••••••',
-                        type: AppInputType.password,
-                        label: 'Password ',
-                        visibility: true,
-                      ),
-                      AppInput(
-                        placeholder: 'example@example.com',
-                        type: AppInputType.email,
-                        label: 'Email',
-                      ),
-                    ],
+
+                  AppInput(
+                    placeholder: '••••••••••••',
+                    type: AppInputType.password,
+                    label: 'Password ',
+                    visibility: true,
                   ),
+                  AppInput(
+                    placeholder: 'example@example.com',
+                    type: AppInputType.email,
+                    label: 'Email',
+                  ),
+
                   AppInput(
                     placeholder: '+1(XXX)XXX-XXXX',
                     type: AppInputType.phone,
@@ -53,12 +51,13 @@ class SignUpScreen extends StatelessWidget {
                     bottomLinkText: 'already have an account?',
                     bottomTextSuffix: 'Log in',
                     buttonText: 'Sign Up',
-                    onButtonPressed: () {
-                      print('Sign Up');
-                    },
-                    onBottomLinkPressed: () {
-                      print('Bottom link');
-                    },
+                    onButtonPressed: () => Navigator.pushNamedAndRemoveUntil(
+                      context,
+                      '/home',
+                      (route) => false,
+                    ),
+                    onBottomLinkPressed: () =>
+                        Navigator.pushReplacementNamed(context, '/login'),
                   ),
                 ],
               ),

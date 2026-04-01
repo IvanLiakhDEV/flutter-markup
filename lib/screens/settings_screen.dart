@@ -18,13 +18,19 @@ class SettingsScreen extends StatelessWidget {
             AppNavItem(
               icon: Icons.lightbulb_outline,
               text: 'Notification setting',
+              onPressed: () =>
+                  Navigator.pushNamed(context, '/settings/notifications'),
             ),
-            AppNavItem(icon: Icons.key_outlined, text: 'Password manager'),
+            AppNavItem(
+              icon: Icons.key_outlined,
+              text: 'Password manager',
+              onPressed: () =>
+                  Navigator.pushNamed(context, '/settings/password-manager'),
+            ),
             AppNavItem(icon: Icons.person_outline, text: 'Delete account'),
           ],
         ),
       ),
-      bottomNavigationBar: AppBottomNavbar(currentIndex: 0, onTap: (_) => {}),
     );
   }
 }

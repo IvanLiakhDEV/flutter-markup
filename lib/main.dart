@@ -7,6 +7,7 @@ import 'package:flutter_markup/screens/notification_settings_screen.dart';
 import 'package:flutter_markup/screens/password_manager_screen.dart';
 import 'package:flutter_markup/screens/proflie_screen.dart';
 import 'package:flutter_markup/screens/settings_screen.dart';
+import 'package:flutter_markup/screens/shell_screen.dart';
 import 'package:flutter_markup/screens/update_profile_screen.dart';
 import './screens/home_screen.dart';
 import './screens/preview_screen.dart';
@@ -23,7 +24,21 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-
+      initialRoute: '/preview',
+      routes: {
+        '/preview': (context) => PreviewScreen(),
+        '/welcome': (context) => Welcomescreen(),
+        '/login': (context) => LoginScreen(),
+        '/signup': (context) => SignUpScreen(),
+        '/set-password': (context) => SetPasswordScreen(),
+        '/home': (context) => ShellScreen(),
+        '/doctors': (context) => DoctorsListScreen(),
+        '/profile': (context) => ProflieScreen(),
+        '/profile/update': (context) => UpdateProfileScreen(),
+        '/settings': (context) => SettingsScreen(),
+        '/settings/notifications': (context) => NotificationSettingsScreen(),
+        '/settings/password-manager': (context) => PasswordManagerScreen(),
+      },
       theme: ThemeData(
         useMaterial3: true,
         fontFamily: 'League Spartan',
@@ -33,19 +48,6 @@ class MainApp extends StatelessWidget {
           elevation: 0,
         ),
       ),
-
-      // home: PreviewScreen(),
-      // home: Welcomescreen(),
-      // home: LoginScreen(),
-      // home: SignUpScreen(),
-      // home: SetPasswordScreen(),
-      // home: HomeScreen(),
-      // home: DoctorsListScreen(),
-      // home: ProflieScreen(),
-      // home: UpdateProfileScreen(),
-      // home: SettingsScreen(),
-      // home: NotificationSettingsScreen(),
-      home: PasswordManagerScreen(),
     );
   }
 }
