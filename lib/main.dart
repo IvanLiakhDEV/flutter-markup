@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'package:flutter_markup/screens/authentication/login-screen.dart';
 import 'package:flutter_markup/screens/authentication/set-password-screen.dart';
 import 'package:flutter_markup/screens/authentication/signup-screen.dart';
@@ -9,12 +11,13 @@ import 'package:flutter_markup/screens/proflie_screen.dart';
 import 'package:flutter_markup/screens/settings_screen.dart';
 import 'package:flutter_markup/screens/shell_screen.dart';
 import 'package:flutter_markup/screens/update_profile_screen.dart';
-import './screens/home_screen.dart';
 import './screens/preview_screen.dart';
 import './screens/welcome_screen.dart';
 
-void main() {
-  runApp(const MainApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  runApp(MainApp());
 }
 
 class MainApp extends StatelessWidget {
