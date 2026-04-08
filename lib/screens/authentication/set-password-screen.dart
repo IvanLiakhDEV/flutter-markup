@@ -26,13 +26,11 @@ class SetPasswordScreen extends StatelessWidget {
                     placeholder: '••••••••••••',
                     type: AppInputType.password,
                     label: 'Password ',
-                    visibility: false,
                   ),
                   AppInput(
                     placeholder: '••••••••••••',
                     type: AppInputType.password,
                     label: 'Confirm Password',
-                    visibility: false,
                   ),
                   AuthFooter(
                     bottomLinkText: '',

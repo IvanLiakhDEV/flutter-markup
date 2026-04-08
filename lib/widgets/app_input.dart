@@ -9,6 +9,7 @@ class AppInput extends StatefulWidget {
   final bool visibility;
   final String? initialValue;
   final bool showHelp;
+  final VoidCallback? onHelpPress;
   const AppInput({
     super.key,
     this.placeholder = 'placeholder',
@@ -17,6 +18,7 @@ class AppInput extends StatefulWidget {
     this.visibility = true,
     this.initialValue,
     this.showHelp = false,
+    this.onHelpPress,
   });
 
   @override
@@ -105,7 +107,7 @@ class _InputState extends State<AppInput> {
               children: [
                 SizedBox(height: 9),
                 TextButton(
-                  onPressed: () => print('Pressed'),
+                  onPressed: widget.onHelpPress ?? () {},
                   style: TextButton.styleFrom(
                     padding: EdgeInsets.zero,
                     minimumSize: Size.zero,

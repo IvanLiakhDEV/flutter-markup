@@ -53,7 +53,7 @@ class PasswordManagerScreen extends StatelessWidget {
                     child: AppButton(
                       text: 'Change Password',
                       textColor: Colors.white,
-                      onPressed: () {},
+                      onPressed: () => {Navigator.pop(context)},
                       backgroundColor: AppColors.scaffoldBackground,
                     ),
                   ),

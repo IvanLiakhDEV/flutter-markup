@@ -122,10 +122,6 @@ class _DoctorsListScreen extends State<DoctorsListScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: AppBottomNavbar(
-        currentIndex: _currentIndex,
-        onTap: (index) => setState(() => _currentIndex = index),
-      ),
     );
   }
 }

@@ -3,6 +3,7 @@ import 'package:flutter_markup/core/app_style.dart';
 import 'package:flutter_markup/core/enums.dart';
 import 'package:flutter_markup/widgets/app_appbar.dart';
 import 'package:flutter_markup/widgets/app_bottom_navbar.dart';
+import 'package:flutter_markup/widgets/app_button.dart';
 import 'package:flutter_markup/widgets/app_circle_button.dart';
 import 'package:flutter_markup/widgets/app_input.dart';
 
@@ -70,13 +71,18 @@ class UpdateProfileScreen extends StatelessWidget {
                     placeholder: 'DD / MM /YYY',
                     type: AppInputType.date,
                   ),
+                  AppButton(
+                    text: 'Update Profile',
+                    backgroundColor: AppColors.scaffoldBackground,
+                    textColor: Colors.white,
+                    onPressed: () => Navigator.pop(context),
+                  ),
                 ],
               ),
             ],
           ),
         ),
       ),
-      bottomNavigationBar: AppBottomNavbar(currentIndex: 0, onTap: (_) => {}),
     );
   }
 }

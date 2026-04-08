@@ -16,13 +16,13 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
         style: AppTextStyles.lg.copyWith(color: AppColors.textPrimary),
       ),
       centerTitle: true,
-      leading: IconButton(
-        padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-        icon: SvgPicture.asset('assets/images/arrow-left.svg'),
-        onPressed: () {
-          Scaffold.of(context).openDrawer();
-        },
-      ),
+      leading: Navigator.canPop(context)
+          ? IconButton(
+              padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+              icon: SvgPicture.asset('assets/images/arrow-left.svg'),
+              onPressed: () => Navigator.pop(context),
+            )
+          : null,
       actions: actions != null
           ? [
               Padding(
