@@ -10,6 +10,8 @@ class AppInput extends StatefulWidget {
   final String? initialValue;
   final bool showHelp;
   final VoidCallback? onHelpPress;
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
   const AppInput({
     super.key,
     this.placeholder = 'placeholder',
@@ -18,7 +20,9 @@ class AppInput extends StatefulWidget {
     this.visibility = true,
     this.initialValue,
     this.showHelp = false,
+    this.controller,
     this.onHelpPress,
+    this.validator,
   });
 
   @override
@@ -27,17 +31,25 @@ class AppInput extends StatefulWidget {
 
 class _InputState extends State<AppInput> {
   late bool _isHidden;
-  late TextEditingController _controller;
+  TextEditingController? _internalController;
+
+  TextEditingController get _effectiveController =>
+      widget.controller ??
+      (_internalController ??= TextEditingController(
+        text: widget.initialValue,
+      ));
   @override
   void initState() {
     super.initState();
     _isHidden = widget.visibility;
-    _controller = TextEditingController(text: widget.initialValue);
+    if (widget.controller == null) {
+      _internalController = TextEditingController(text: widget.initialValue);
+    }
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _internalController?.dispose();
     super.dispose();
   }
 
@@ -66,19 +78,29 @@ class _InputState extends State<AppInput> {
           style: AppTextStyles.md.copyWith(color: Colors.black, height: 1.0),
         ),
         SizedBox(height: 12),
-        TextField(
-          controller: _controller,
+        TextFormField(
+          validator: widget.validator,
+          controller: _effectiveController,
           obscureText: _isHidden && widget.type == AppInputType.password,
           textAlignVertical: TextAlignVertical.center,
           style: AppTextStyles.md.copyWith(color: Colors.black),
           keyboardType: _getKeyboardType(),
           decoration: InputDecoration(
+            errorStyle: const TextStyle(fontSize: 12, color: Colors.red),
             isDense: true,
             filled: true,
             fillColor: AppColors.inputsBackground,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(13),
               borderSide: BorderSide.none,
+            ),
+            errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(13),
+              borderSide: const BorderSide(color: Colors.red),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(13),
+              borderSide: const BorderSide(color: Colors.red, width: 2),
             ),
             hintText: widget.placeholder,
             hintStyle: AppTextStyles.md.copyWith(
