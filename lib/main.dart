@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_markup/services/auth_service.dart';
 import 'firebase_options.dart';
 import 'package:flutter_markup/screens/authentication/login-screen.dart';
 import 'package:flutter_markup/screens/authentication/set-password-screen.dart';
@@ -27,10 +29,20 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/preview',
+      home: StreamBuilder<User?>(
+        stream: AuthService().authStateChanges,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const PreviewScreen();
+          }
+          if (snapshot.hasData) {
+            return const ShellScreen();
+          }
+          return const Welcomescreen();
+        },
+      ),
+
       routes: {
-        '/preview': (context) => PreviewScreen(),
-        '/welcome': (context) => Welcomescreen(),
         '/login': (context) => LoginScreen(),
         '/signup': (context) => SignUpScreen(),
         '/set-password': (context) => SetPasswordScreen(),

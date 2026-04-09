@@ -13,12 +13,6 @@ class _PreviewScreenState extends State<PreviewScreen> {
   @override
   void initState() {
     super.initState();
-    _navigate();
-  }
-
-  Future<void> _navigate() async {
-    await Future.delayed(Duration(seconds: 8));
-    Navigator.pushReplacementNamed(context, '/welcome');
   }
 
   @override

@@ -1,12 +1,34 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markup/core/app_style.dart';
+import 'package:flutter_markup/services/auth_service.dart';
 import 'package:flutter_markup/widgets/app_appbar.dart';
-import 'package:flutter_markup/widgets/app_bottom_navbar.dart';
 import 'package:flutter_markup/widgets/app_circle_button.dart';
 import 'package:flutter_markup/widgets/app_nav_item.dart';
 
-class ProflieScreen extends StatelessWidget {
+class ProflieScreen extends StatefulWidget {
   const ProflieScreen({super.key});
+
+  @override
+  State<ProflieScreen> createState() => _ProflieScreenState();
+}
+
+class _ProflieScreenState extends State<ProflieScreen> {
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  void signOut() async {
+    try {
+      await AuthService().signOut();
+      if (mounted) {
+        Navigator.of(context).popUntil((route) => route.isFirst);
+      }
+    } on FirebaseAuthException catch (e) {
+      print(e.message);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +77,11 @@ class ProflieScreen extends StatelessWidget {
                     onPressed: () => Navigator.pushNamed(context, '/settings'),
                   ),
                   AppNavItem(icon: Icons.question_mark, text: 'Help'),
-                  AppNavItem(icon: Icons.logout, text: 'Logout'),
+                  AppNavItem(
+                    icon: Icons.logout,
+                    text: 'Logout',
+                    onPressed: signOut,
+                  ),
                 ],
               ),
             ],
