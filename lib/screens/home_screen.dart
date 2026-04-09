@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markup/core/app_style.dart';
 import 'package:flutter_markup/widgets/app_icon_button.dart';
@@ -44,7 +45,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             color: AppColors.textPrimary,
                           ),
                         ),
-                        Text('John Doe', style: AppTextStyles.sm),
+                        Text(
+                          FirebaseAuth.instance.currentUser?.displayName ??
+                              'John Doe',
+                          style: AppTextStyles.sm,
+                        ),
                       ],
                     ),
                     const Spacer(),

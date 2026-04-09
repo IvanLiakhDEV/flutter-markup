@@ -20,8 +20,25 @@ dev_dependencies:
 
 flutter:
     uses-material-design: true
+
     assets:
-        - assets/images/
+        - assets/images/arrow-left.svg
+        - assets/images/avatar.png
+        - assets/images/doctor1.png
+        - assets/images/doctor2.png
+        - assets/images/doctor3.png
+        - assets/images/doctor4.png
+        - assets/images/facebook.svg
+        - assets/images/filter.svg
+        - assets/images/fingerprint.svg
+        - assets/images/google.svg
+        - assets/images/heart.svg
+        - assets/images/logo-img-blue.svg
+        - assets/images/logo-img-white.svg
+        - assets/images/notification.svg
+        - assets/images/search.svg
+        - assets/images/settings.svg
+        - assets/images/stethoscope.svg
 
     fonts:
         - family: League Spartan

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_markup/core/app_style.dart';
 import 'package:flutter_markup/services/auth_service.dart';
 import 'package:flutter_markup/widgets/app_appbar.dart';
 import 'package:flutter_markup/widgets/app_auth_footer.dart';
@@ -16,6 +17,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   TextEditingController controllerEmail = TextEditingController();
   TextEditingController controllerPassword = TextEditingController();
+  TextEditingController controllerFullName = TextEditingController();
 
   bool isLoading = false;
   bool showError = false;
@@ -24,6 +26,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   void dispose() {
     controllerEmail.dispose();
     controllerPassword.dispose();
+    controllerFullName.dispose();
     super.dispose();
   }
 
@@ -36,6 +39,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       await AuthService().createUser(
         email: controllerEmail.text.trim(),
         password: controllerPassword.text.trim(),
+        fullName: controllerFullName.text.trim(),
       );
       if (mounted) Navigator.pushReplacementNamed(context, '/login');
     } on FirebaseAuthException catch (e) {
@@ -67,7 +71,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   mainAxisSize: MainAxisSize.min,
                   spacing: 18,
                   children: [
-                    AppInput(placeholder: 'John Doe', label: 'Full name'),
+                    AppInput(
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Поле не може бути порожнім';
+                        }
+                        return null;
+                      },
+                      controller: controllerFullName,
+                      placeholder: 'John Doe',
+                      label: 'Full name',
+                    ),
                     AppInput(
                       controller: controllerPassword,
                       validator: (value) {
@@ -123,14 +137,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ],
                       ),
                     ),
-                    AuthFooter(
-                      bottomLinkText: 'already have an account?',
-                      bottomTextSuffix: 'Log in',
-                      buttonText: 'Sign Up',
-                      onButtonPressed: signUp,
-                      onBottomLinkPressed: () =>
-                          Navigator.pushReplacementNamed(context, '/login'),
-                    ),
+                    isLoading
+                        ? const Center(
+                            child: CircularProgressIndicator(
+                              color: AppColors.scaffoldBackground,
+                            ),
+                          )
+                        : AuthFooter(
+                            bottomLinkText: 'already have an account?',
+                            bottomTextSuffix: 'Log in',
+                            buttonText: 'Sign Up',
+                            onButtonPressed: signUp,
+                            onBottomLinkPressed: () =>
+                                Navigator.pushReplacementNamed(
+                                  context,
+                                  '/login',
+                                ),
+                          ),
                   ],
                 ),
               ),

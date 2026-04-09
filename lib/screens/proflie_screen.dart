@@ -54,7 +54,10 @@ class _ProflieScreenState extends State<ProflieScreen> {
                 ],
               ),
               SizedBox(height: 15),
-              Text('John Doe', style: AppTextStyles.lg),
+              Text(
+                FirebaseAuth.instance.currentUser?.displayName ?? 'John Doe',
+                style: AppTextStyles.lg,
+              ),
               SizedBox(height: 40),
               Column(
                 spacing: 16,

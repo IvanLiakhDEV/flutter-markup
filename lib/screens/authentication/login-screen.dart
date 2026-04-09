@@ -135,14 +135,23 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     SizedBox(height: 55),
-                    AuthFooter(
-                      bottomLinkText: 'Don’t have an account?',
-                      bottomTextSuffix: 'Sign Up',
-                      buttonText: 'Log In',
-                      onButtonPressed: login,
-                      onBottomLinkPressed: () =>
-                          Navigator.pushReplacementNamed(context, '/signup'),
-                    ),
+                    isLoading
+                        ? const Center(
+                            child: CircularProgressIndicator(
+                              color: AppColors.scaffoldBackground,
+                            ),
+                          )
+                        : AuthFooter(
+                            bottomLinkText: 'Don’t have an account?',
+                            bottomTextSuffix: 'Sign Up',
+                            buttonText: 'Log In',
+                            onButtonPressed: login,
+                            onBottomLinkPressed: () =>
+                                Navigator.pushReplacementNamed(
+                                  context,
+                                  '/signup',
+                                ),
+                          ),
                   ],
                 ),
               ),
