@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markup/core/app_style.dart';
-import 'package:flutter_markup/core/enums.dart';
 
 class AppInput extends StatefulWidget {
   final String placeholder;
   final String label;
-  final AppInputType type;
+  final TextInputType type;
   final bool visibility;
   final String? initialValue;
   final bool showHelp;
@@ -16,7 +15,7 @@ class AppInput extends StatefulWidget {
     super.key,
     this.placeholder = 'placeholder',
     this.label = 'label',
-    this.type = AppInputType.text,
+    this.type = TextInputType.text,
     this.visibility = true,
     this.initialValue,
     this.showHelp = false,
@@ -53,21 +52,6 @@ class _InputState extends State<AppInput> {
     super.dispose();
   }
 
-  TextInputType _getKeyboardType() {
-    switch (widget.type) {
-      case AppInputType.email:
-        return TextInputType.emailAddress;
-      case AppInputType.phone:
-        return TextInputType.phone;
-      case AppInputType.number:
-        return TextInputType.number;
-      case AppInputType.date:
-        return TextInputType.datetime;
-      default:
-        return TextInputType.text;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -81,10 +65,11 @@ class _InputState extends State<AppInput> {
         TextFormField(
           validator: widget.validator,
           controller: _effectiveController,
-          obscureText: _isHidden && widget.type == AppInputType.password,
+          obscureText:
+              _isHidden && widget.type == TextInputType.visiblePassword,
           textAlignVertical: TextAlignVertical.center,
           style: AppTextStyles.md.copyWith(color: Colors.black),
-          keyboardType: _getKeyboardType(),
+          keyboardType: widget.type,
           decoration: InputDecoration(
             errorStyle: const TextStyle(fontSize: 12, color: Colors.red),
             isDense: true,
@@ -107,7 +92,7 @@ class _InputState extends State<AppInput> {
               color: AppColors.textPlaceholders,
             ),
             contentPadding: EdgeInsets.all(10.0),
-            suffixIcon: widget.type == AppInputType.password
+            suffixIcon: widget.type == TextInputType.visiblePassword
                 ? IconButton(
                     icon: Icon(
                       _isHidden ? Icons.visibility_off : Icons.visibility,

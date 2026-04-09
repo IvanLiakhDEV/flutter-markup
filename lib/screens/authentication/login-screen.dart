@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markup/core/app_style.dart';
-import 'package:flutter_markup/core/enums.dart';
 import 'package:flutter_markup/services/auth_service.dart';
 import 'package:flutter_markup/widgets/app_appbar.dart';
 import 'package:flutter_markup/widgets/app_auth_footer.dart';
@@ -95,7 +94,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                       controller: controllerEmail,
                       placeholder: 'example@example.com',
-                      type: AppInputType.text,
+
                       label: 'Email or Mobile Number',
                     ),
                     SizedBox(height: 20),
@@ -110,7 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         return null;
                       },
                       placeholder: '••••••••••••',
-                      type: AppInputType.password,
+                      type: TextInputType.visiblePassword,
                       label: 'Password ',
                       showHelp: true,
                       onHelpPress: () => Navigator.pushReplacementNamed(

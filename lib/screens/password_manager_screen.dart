@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markup/core/app_style.dart';
-import 'package:flutter_markup/core/enums.dart';
 import 'package:flutter_markup/widgets/app_appbar.dart';
 import 'package:flutter_markup/widgets/app_button.dart';
 import 'package:flutter_markup/widgets/app_input.dart';
@@ -29,19 +28,19 @@ class PasswordManagerScreen extends StatelessWidget {
                           const SizedBox(height: 18),
                           AppInput(
                             placeholder: '••••••••••••',
-                            type: AppInputType.password,
+                            type: TextInputType.visiblePassword,
                             label: 'Current Password',
 
                             showHelp: true,
                           ),
                           AppInput(
                             placeholder: '••••••••••••',
-                            type: AppInputType.password,
+                            type: TextInputType.visiblePassword,
                             label: 'New Password',
                           ),
                           AppInput(
                             placeholder: '••••••••••••',
-                            type: AppInputType.password,
+                            type: TextInputType.visiblePassword,
                             label: 'Confirm New Password',
                           ),
                         ],

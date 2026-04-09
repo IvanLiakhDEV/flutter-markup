@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_markup/core/enums.dart';
 import 'package:flutter_markup/services/auth_service.dart';
 import 'package:flutter_markup/widgets/app_appbar.dart';
 import 'package:flutter_markup/widgets/app_auth_footer.dart';
@@ -80,7 +79,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         return null;
                       },
                       placeholder: '••••••••••••',
-                      type: AppInputType.password,
+                      type: TextInputType.visiblePassword,
                       label: 'Password ',
                       visibility: true,
                     ),
@@ -94,17 +93,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       },
                       controller: controllerEmail,
                       placeholder: 'example@example.com',
-                      type: AppInputType.email,
+                      type: TextInputType.emailAddress,
                       label: 'Email',
                     ),
                     AppInput(
                       placeholder: '+1(XXX)XXX-XXXX',
-                      type: AppInputType.phone,
+                      type: TextInputType.phone,
                       label: 'Mobile Number',
                     ),
                     AppInput(
                       placeholder: 'DD / MM /YYY',
-                      type: AppInputType.date,
+                      type: TextInputType.datetime,
                       label: 'Date of birth',
                     ),
                     Visibility(

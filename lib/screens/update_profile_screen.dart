@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markup/core/app_style.dart';
-import 'package:flutter_markup/core/enums.dart';
 import 'package:flutter_markup/widgets/app_appbar.dart';
-import 'package:flutter_markup/widgets/app_bottom_navbar.dart';
 import 'package:flutter_markup/widgets/app_button.dart';
 import 'package:flutter_markup/widgets/app_circle_button.dart';
 import 'package:flutter_markup/widgets/app_input.dart';
@@ -57,19 +55,19 @@ class UpdateProfileScreen extends StatelessWidget {
                     label: 'Phone number',
                     initialValue: '+123 567 89000',
                     placeholder: '+123 567 89000',
-                    type: AppInputType.phone,
+                    type: TextInputType.phone,
                   ),
                   AppInput(
                     label: 'Email',
                     initialValue: 'Johndoe@example.com',
                     placeholder: 'example@example.com',
-                    type: AppInputType.email,
+                    type: TextInputType.emailAddress,
                   ),
                   AppInput(
                     label: 'Date of birth',
                     initialValue: 'DD / MM /YYY',
                     placeholder: 'DD / MM /YYY',
-                    type: AppInputType.date,
+                    type: TextInputType.datetime,
                   ),
                   AppButton(
                     text: 'Update Profile',

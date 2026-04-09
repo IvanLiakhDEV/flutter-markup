@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_markup/screens/doctors_list_screen.dart';
 import 'package:flutter_markup/screens/home_screen.dart';
 import 'package:flutter_markup/screens/proflie_screen.dart';
-import 'package:flutter_markup/screens/settings_screen.dart';
 import 'package:flutter_markup/widgets/app_bottom_navbar.dart';
 
 class ShellScreen extends StatefulWidget {

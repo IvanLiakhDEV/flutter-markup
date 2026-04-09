@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_markup/core/app_style.dart';
 import 'package:flutter_markup/widgets/app_icon_button.dart';
 import 'package:flutter_markup/widgets/app_category_tile.dart';
-import 'package:flutter_markup/widgets/app_bottom_navbar.dart';
 import 'package:flutter_markup/widgets/doctor_card.dart';
 import 'package:flutter_markup/widgets/schedule/app_schedule.dart';
 import 'package:flutter_markup/widgets/app_searchbar.dart';
@@ -15,7 +14,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
